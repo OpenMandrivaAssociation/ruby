@@ -7,7 +7,7 @@
 Summary:	Object Oriented Script Language
 Name:		ruby
 Version:	%{rubyver}.%{patchversion}
-Release: 	3
+Release: 	4
 License:	Ruby or GPLv2
 Group:		Development/Ruby
 
