@@ -7,7 +7,7 @@
 Summary:	Object Oriented Script Language
 Name:		ruby
 Version:	%{rubyver}.%{patchversion}
-Release: 	4
+Release: 	4.1
 License:	Ruby or GPLv2
 Group:		Development/Ruby
 
@@ -152,7 +152,7 @@ touch configure.in
 CFLAGS=`echo %optflags | sed 's/-fomit-frame-pointer//'`
 %configure2_5x	--enable-shared \
 		--disable-rpath \
-		--enable-wide-getaddrinfo \
+		--disable-wide-getaddrinfo \
 		--enable-pthread \
 		--with-sitedir=%{_prefix}/lib/ruby/%{abiver}/site_ruby \
 		--with-vendordir=%{_prefix}/lib/ruby/%{abiver}/vendor_ruby \
