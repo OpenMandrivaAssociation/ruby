@@ -3,7 +3,7 @@
 %global teeny_version 1
 %global major_minor_version %{major_version}.%{minor_version}
 %define gem_dir %{_datadir}/gems
-%define %license %{_datadir}/licenses
+%define license %{_datadir}/licenses
 
 %global ruby_version %{major_minor_version}.%{teeny_version}
 %global ruby_release %{ruby_version}
@@ -961,8 +961,6 @@ make check TESTS="-v $DISABLE_TESTS"
 %dir %{gem_dir}/specifications/default
 %dir %{_exec_prefix}/lib*/gems
 %dir %{_exec_prefix}/lib*/gems/ruby
-
-%exclude %{gem_dir}/cache/*
 
 # TODO: Gemify these libraries
 %{gem_dir}/specifications/default/cmath-1.0.0.gemspec
