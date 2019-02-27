@@ -69,6 +69,8 @@
 %bcond_without hardening_test
 %endif
 
+%define mklibname lib64%{1}
+
 %define libname %mklibname ruby %(echo %{ruby_version} |cut -d. -f1-2)
 %define devname %mklibname -d ruby
 
