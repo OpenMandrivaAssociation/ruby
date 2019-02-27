@@ -3,7 +3,6 @@
 %global teeny_version 1
 %global major_minor_version %{major_version}.%{minor_version}
 %define gem_dir %{_datadir}/gems
-%define license %{_datadir}/licenses
 
 %global ruby_version %{major_minor_version}.%{teeny_version}
 %global ruby_release %{ruby_version}
@@ -777,23 +776,12 @@ make check TESTS="-v $DISABLE_TESTS"
 %endif
 
 %files
-%license BSDL
-%license COPYING
-%lang(ja) %license COPYING.ja
-%license GPL
-%license LEGAL
 %{_bindir}/erb
 %{_bindir}/%{name}
 %{_mandir}/man1/erb*
 %{_mandir}/man1/ruby*
 
 %files -n %{devname}
-%license BSDL
-%license COPYING
-%lang(ja) %license COPYING.ja
-%license GPL
-%license LEGAL
-
 %{_rpmhome}/macros.d/macros.ruby
 
 %{_includedir}/*
@@ -801,10 +789,6 @@ make check TESTS="-v $DISABLE_TESTS"
 %{_libdir}/pkgconfig/%{name}.pc
 
 %files -n %{libname}
-%license COPYING
-%lang(ja) %license COPYING.ja
-%license GPL
-%license LEGAL
 %doc README.md
 %doc NEWS
 # Exclude /usr/local directory since it is supposed to be managed by
@@ -1079,7 +1063,6 @@ make check TESTS="-v $DISABLE_TESTS"
 %{gem_dir}/specifications/test-unit-%{test_unit_version}.gemspec
 
 %files -n rubygem-xmlrpc
-%license %{gem_dir}/gems/xmlrpc-%{xmlrpc_version}/LICENSE.txt
 %dir %{gem_dir}/gems/xmlrpc-%{xmlrpc_version}
 %exclude %{gem_dir}/gems/xmlrpc-%{xmlrpc_version}/.*
 %{gem_dir}/gems/xmlrpc-%{xmlrpc_version}/Gemfile
