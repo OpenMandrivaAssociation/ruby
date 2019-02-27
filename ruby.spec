@@ -608,18 +608,18 @@ test ! "$(ls -A  %{buildroot}%{rubygems_dir}/rubygems/ssl_certs/ 2>/dev/null)"
 
 # Move macros file into proper place and replace the %%{name} macro, since it
 # would be wrongly evaluated during build of other packages.
-mkdir -p %{buildroot}%{_rpmconfigdir}/macros.d
-install -m 644 %{SOURCE4} %{buildroot}%{_rpmconfigdir}/macros.d/macros.ruby
-sed -i "s/%%{name}/%{name}/" %{buildroot}%{_rpmconfigdir}/macros.d/macros.ruby
-install -m 644 %{SOURCE5} %{buildroot}%{_rpmconfigdir}/macros.d/macros.rubygems
-sed -i "s/%%{name}/%{name}/" %{buildroot}%{_rpmconfigdir}/macros.d/macros.rubygems
+mkdir -p %{buildroot}%{__rpmhome}/macros.d
+install -m 644 %{SOURCE4} %{buildroot}%{__rpmhome}/macros.d/macros.ruby
+sed -i "s/%%{name}/%{name}/" %{buildroot}%{__rpmhome}/macros.d/macros.ruby
+install -m 644 %{SOURCE5} %{buildroot}%{__rpmhome}/macros.d/macros.rubygems
+sed -i "s/%%{name}/%{name}/" %{buildroot}%{__rpmhome}/macros.d/macros.rubygems
 
 # Install dependency generators.
-mkdir -p %{buildroot}%{_rpmconfigdir}/fileattrs
-install -m 644 %{SOURCE8} %{buildroot}%{_rpmconfigdir}/fileattrs
-install -m 755 %{SOURCE9} %{buildroot}%{_rpmconfigdir}
-install -m 755 %{SOURCE10} %{buildroot}%{_rpmconfigdir}
-install -m 755 %{SOURCE11} %{buildroot}%{_rpmconfigdir}
+mkdir -p %{buildroot}%{__rpmhome}/fileattrs
+install -m 644 %{SOURCE8} %{buildroot}%{__rpmhome}/fileattrs
+install -m 755 %{SOURCE9} %{buildroot}%{__rpmhome}
+install -m 755 %{SOURCE10} %{buildroot}%{__rpmhome}
+install -m 755 %{SOURCE11} %{buildroot}%{__rpmhome}
 
 # Install custom operating_system.rb.
 mkdir -p %{buildroot}%{rubygems_dir}/rubygems/defaults
@@ -785,7 +785,7 @@ make check TESTS="-v $DISABLE_TESTS"
 %license GPL
 %license LEGAL
 
-%{_rpmconfigdir}/macros.d/macros.ruby
+%{__rpmhome}/macros.d/macros.ruby
 
 %{_includedir}/*
 %{_libdir}/libruby.so
@@ -979,11 +979,11 @@ make check TESTS="-v $DISABLE_TESTS"
 %{gem_dir}/specifications/default/zlib-1.0.0.gemspec
 
 %files -n rubygems-devel
-%{_rpmconfigdir}/macros.d/macros.rubygems
-%{_rpmconfigdir}/fileattrs/rubygems.attr
-%{_rpmconfigdir}/rubygems.req
-%{_rpmconfigdir}/rubygems.prov
-%{_rpmconfigdir}/rubygems.con
+%{__rpmhome}/macros.d/macros.rubygems
+%{__rpmhome}/fileattrs/rubygems.attr
+%{__rpmhome}/rubygems.req
+%{__rpmhome}/rubygems.prov
+%{__rpmhome}/rubygems.con
 
 %files -n rubygem-rake
 %{_bindir}/rake
