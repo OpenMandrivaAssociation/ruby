@@ -69,8 +69,8 @@
 %bcond_without hardening_test
 %endif
 
-%define libname %mklibname ruby %(echo %{ruby_version} |cut -d. -f1-2)
-%define devname %mklibname ruby -d
+%define libname %mklibname ruby %{major_version}.%{minor_version}
+%define devname	%mklibname ruby -d
 
 %bcond_with tests
 
@@ -171,7 +171,7 @@ BuildRequires: procps
 %{?with_systemtap:BuildRequires: %{_bindir}/dtrace}
 # RubyGems test suite optional dependencies.
 %{?with_git:BuildRequires: git}
-%{?with_cmake:BuildRequires: %{_bindir}/cmake}
+%{?with_cmake:BuildRequires: cmake}
 # Required to test hardening.
 %{?with_hardening_test:BuildRequires: %{_bindir}/checksec}
 
@@ -528,7 +528,8 @@ HTTP.
 
 
 %prep
-%autosetup -p1 -n %{ruby_archive}
+%setup -n %{ruby_archive}
+%apply_patches
 
 # Remove bundled libraries to be sure they are not used.
 rm -rf ext/psych/yaml
