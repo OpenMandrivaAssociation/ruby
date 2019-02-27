@@ -78,7 +78,6 @@ Summary: An interpreter of object-oriented scripting language
 Name: ruby
 Version: %{ruby_version}
 Release: %{release_string}
-Group: Development/Languages
 # Public Domain for example for: include/ruby/st.h, strftime.c, missing/*, ...
 # MIT and CCO: ccan/*
 # zlib: ext/digest/md5/md5.*, ext/nkf/nkf-utf8/nkf.c
