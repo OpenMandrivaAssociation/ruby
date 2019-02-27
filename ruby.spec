@@ -721,6 +721,8 @@ echo 'doc/pty' >> .ruby-doc.ja
 sed -i 's/^/%doc /' .ruby-doc.*
 sed -i 's/^/%lang(ja) /' .ruby-doc.ja
 
+rm -rf %{buildroot}/%{_datadir}/gems/cache/*
+
 %check
 %if %{with tests}
 %if 0%{?with_hardening_test}
