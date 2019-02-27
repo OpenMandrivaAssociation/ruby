@@ -564,7 +564,7 @@ export CXX="g++ -fuse-ld=bfd"
 %configure \
         --with-rubylibprefix='%{ruby_libdir}' \
         --with-archlibdir='%{_libdir}' \
-        --with-rubyarchprefix='%{ruby_libarchdir}' \
+        --with-rubyarchprefix='%{ruby_archdir}' \
         --with-sitedir='%{ruby_sitelibdir}' \
         --with-sitearchdir='%{ruby_sitearchdir}' \
         --with-vendordir='%{ruby_vendorlibdir}' \
@@ -643,32 +643,32 @@ mv %{buildroot}%{gem_dir}/specifications/default/rdoc-%{rdoc_version}.gemspec %{
 mkdir -p %{buildroot}%{gem_dir}/gems/bigdecimal-%{bigdecimal_version}/lib
 mkdir -p %{buildroot}%{_libdir}/gems/%{name}/bigdecimal-%{bigdecimal_version}
 mv %{buildroot}%{ruby_libdir}/bigdecimal %{buildroot}%{gem_dir}/gems/bigdecimal-%{bigdecimal_version}/lib
-mv %{buildroot}%{ruby_libarchdir}/bigdecimal.so %{buildroot}%{_libdir}/gems/%{name}/bigdecimal-%{bigdecimal_version}
+mv %{buildroot}%{ruby_archdir}/bigdecimal.so %{buildroot}%{_libdir}/gems/%{name}/bigdecimal-%{bigdecimal_version}
 mv %{buildroot}%{gem_dir}/specifications/default/bigdecimal-%{bigdecimal_version}.gemspec %{buildroot}%{gem_dir}/specifications
 ln -s %{gem_dir}/gems/bigdecimal-%{bigdecimal_version}/lib/bigdecimal %{buildroot}%{ruby_libdir}/bigdecimal
-ln -s %{_libdir}/gems/%{name}/bigdecimal-%{bigdecimal_version}/bigdecimal.so %{buildroot}%{ruby_libarchdir}/bigdecimal.so
+ln -s %{_libdir}/gems/%{name}/bigdecimal-%{bigdecimal_version}/bigdecimal.so %{buildroot}%{ruby_archdir}/bigdecimal.so
 
 mkdir -p %{buildroot}%{gem_dir}/gems/io-console-%{io_console_version}/lib
 mkdir -p %{buildroot}%{_libdir}/gems/%{name}/io-console-%{io_console_version}/io
 mv %{buildroot}%{ruby_libdir}/io %{buildroot}%{gem_dir}/gems/io-console-%{io_console_version}/lib
-mv %{buildroot}%{ruby_libarchdir}/io/console.so %{buildroot}%{_libdir}/gems/%{name}/io-console-%{io_console_version}/io
+mv %{buildroot}%{ruby_archdir}/io/console.so %{buildroot}%{_libdir}/gems/%{name}/io-console-%{io_console_version}/io
 mv %{buildroot}%{gem_dir}/specifications/default/io-console-%{io_console_version}.gemspec %{buildroot}%{gem_dir}/specifications
 ln -s %{gem_dir}/gems/io-console-%{io_console_version}/lib/io %{buildroot}%{ruby_libdir}/io
-ln -s %{_libdir}/gems/%{name}/io-console-%{io_console_version}/io/console.so %{buildroot}%{ruby_libarchdir}/io/console.so
+ln -s %{_libdir}/gems/%{name}/io-console-%{io_console_version}/io/console.so %{buildroot}%{ruby_archdir}/io/console.so
 
 mkdir -p %{buildroot}%{gem_dir}/gems/json-%{json_version}/lib
 mkdir -p %{buildroot}%{_libdir}/gems/%{name}/json-%{json_version}
 mv %{buildroot}%{ruby_libdir}/json* %{buildroot}%{gem_dir}/gems/json-%{json_version}/lib
-mv %{buildroot}%{ruby_libarchdir}/json/ %{buildroot}%{_libdir}/gems/%{name}/json-%{json_version}/
+mv %{buildroot}%{ruby_archdir}/json/ %{buildroot}%{_libdir}/gems/%{name}/json-%{json_version}/
 mv %{buildroot}%{gem_dir}/specifications/default/json-%{json_version}.gemspec %{buildroot}%{gem_dir}/specifications
 ln -s %{gem_dir}/gems/json-%{json_version}/lib/json.rb %{buildroot}%{ruby_libdir}/json.rb
 ln -s %{gem_dir}/gems/json-%{json_version}/lib/json %{buildroot}%{ruby_libdir}/json
-ln -s %{_libdir}/gems/%{name}/json-%{json_version}/json/ %{buildroot}%{ruby_libarchdir}/json
+ln -s %{_libdir}/gems/%{name}/json-%{json_version}/json/ %{buildroot}%{ruby_archdir}/json
 
 mkdir -p %{buildroot}%{gem_dir}/gems/openssl-%{openssl_version}/lib
 mkdir -p %{buildroot}%{_libdir}/gems/%{name}/openssl-%{openssl_version}
 mv %{buildroot}%{ruby_libdir}/openssl* %{buildroot}%{gem_dir}/gems/openssl-%{openssl_version}/lib
-mv %{buildroot}%{ruby_libarchdir}/openssl.so %{buildroot}%{_libdir}/gems/%{name}/openssl-%{openssl_version}/
+mv %{buildroot}%{ruby_archdir}/openssl.so %{buildroot}%{_libdir}/gems/%{name}/openssl-%{openssl_version}/
 mv %{buildroot}%{gem_dir}/specifications/default/openssl-%{openssl_version}.gemspec %{buildroot}%{gem_dir}/specifications
 # This used to be directory when OpenSSL was integral part of StdLib => Keep
 # it as directory and link everything in it to prevent directory => symlink
@@ -677,16 +677,16 @@ mkdir -p %{buildroot}%{ruby_libdir}/openssl
 find %{buildroot}%{gem_dir}/gems/openssl-%{openssl_version}/lib/openssl -maxdepth 1 -type f -exec \
   sh -c 'ln -s %{gem_dir}/gems/openssl-%{openssl_version}/lib/openssl/`basename {}` %{buildroot}%{ruby_libdir}/openssl' \;
 ln -s %{gem_dir}/gems/openssl-%{openssl_version}/lib/openssl.rb %{buildroot}%{ruby_libdir}/openssl.rb
-ln -s %{_libdir}/gems/%{name}/openssl-%{openssl_version}/openssl.so %{buildroot}%{ruby_libarchdir}/openssl.so
+ln -s %{_libdir}/gems/%{name}/openssl-%{openssl_version}/openssl.so %{buildroot}%{ruby_archdir}/openssl.so
 
 mkdir -p %{buildroot}%{gem_dir}/gems/psych-%{psych_version}/lib
 mkdir -p %{buildroot}%{_libdir}/gems/%{name}/psych-%{psych_version}
 mv %{buildroot}%{ruby_libdir}/psych* %{buildroot}%{gem_dir}/gems/psych-%{psych_version}/lib
-mv %{buildroot}%{ruby_libarchdir}/psych.so %{buildroot}%{_libdir}/gems/%{name}/psych-%{psych_version}/
+mv %{buildroot}%{ruby_archdir}/psych.so %{buildroot}%{_libdir}/gems/%{name}/psych-%{psych_version}/
 mv %{buildroot}%{gem_dir}/specifications/default/psych-%{psych_version}.gemspec %{buildroot}%{gem_dir}/specifications
 ln -s %{gem_dir}/gems/psych-%{psych_version}/lib/psych %{buildroot}%{ruby_libdir}/psych
 ln -s %{gem_dir}/gems/psych-%{psych_version}/lib/psych.rb %{buildroot}%{ruby_libdir}/psych.rb
-ln -s %{_libdir}/gems/%{name}/psych-%{psych_version}/psych.so %{buildroot}%{ruby_libarchdir}/psych.so
+ln -s %{_libdir}/gems/%{name}/psych-%{psych_version}/psych.so %{buildroot}%{ruby_archdir}/psych.so
 
 # Move the binary extensions into proper place (if no gem has binary extension,
 # the extensions directory might be empty).
@@ -836,106 +836,106 @@ make check TESTS="-v $DISABLE_TESTS"
 
 # Platform specific libraries.
 %{_libdir}/libruby.so.*
-%dir %{ruby_libarchdir}
-%dir %{ruby_libarchdir}/cgi
-%{ruby_libarchdir}/cgi/escape.so
-%{ruby_libarchdir}/continuation.so
-%{ruby_libarchdir}/coverage.so
-%{ruby_libarchdir}/date_core.so
-%{ruby_libarchdir}/dbm.so
-%dir %{ruby_libarchdir}/digest
-%{ruby_libarchdir}/digest.so
-%{ruby_libarchdir}/digest/bubblebabble.so
-%{ruby_libarchdir}/digest/md5.so
-%{ruby_libarchdir}/digest/rmd160.so
-%{ruby_libarchdir}/digest/sha1.so
-%{ruby_libarchdir}/digest/sha2.so
-%dir %{ruby_libarchdir}/enc
-%{ruby_libarchdir}/enc/big5.so
-%{ruby_libarchdir}/enc/cp949.so
-%{ruby_libarchdir}/enc/emacs_mule.so
-%{ruby_libarchdir}/enc/encdb.so
-%{ruby_libarchdir}/enc/euc_jp.so
-%{ruby_libarchdir}/enc/euc_kr.so
-%{ruby_libarchdir}/enc/euc_tw.so
-%{ruby_libarchdir}/enc/gb18030.so
-%{ruby_libarchdir}/enc/gb2312.so
-%{ruby_libarchdir}/enc/gbk.so
-%{ruby_libarchdir}/enc/iso_8859_1.so
-%{ruby_libarchdir}/enc/iso_8859_10.so
-%{ruby_libarchdir}/enc/iso_8859_11.so
-%{ruby_libarchdir}/enc/iso_8859_13.so
-%{ruby_libarchdir}/enc/iso_8859_14.so
-%{ruby_libarchdir}/enc/iso_8859_15.so
-%{ruby_libarchdir}/enc/iso_8859_16.so
-%{ruby_libarchdir}/enc/iso_8859_2.so
-%{ruby_libarchdir}/enc/iso_8859_3.so
-%{ruby_libarchdir}/enc/iso_8859_4.so
-%{ruby_libarchdir}/enc/iso_8859_5.so
-%{ruby_libarchdir}/enc/iso_8859_6.so
-%{ruby_libarchdir}/enc/iso_8859_7.so
-%{ruby_libarchdir}/enc/iso_8859_8.so
-%{ruby_libarchdir}/enc/iso_8859_9.so
-%{ruby_libarchdir}/enc/koi8_r.so
-%{ruby_libarchdir}/enc/koi8_u.so
-%{ruby_libarchdir}/enc/shift_jis.so
-%dir %{ruby_libarchdir}/enc/trans
-%{ruby_libarchdir}/enc/trans/big5.so
-%{ruby_libarchdir}/enc/trans/chinese.so
-%{ruby_libarchdir}/enc/trans/ebcdic.so
-%{ruby_libarchdir}/enc/trans/emoji.so
-%{ruby_libarchdir}/enc/trans/emoji_iso2022_kddi.so
-%{ruby_libarchdir}/enc/trans/emoji_sjis_docomo.so
-%{ruby_libarchdir}/enc/trans/emoji_sjis_kddi.so
-%{ruby_libarchdir}/enc/trans/emoji_sjis_softbank.so
-%{ruby_libarchdir}/enc/trans/escape.so
-%{ruby_libarchdir}/enc/trans/gb18030.so
-%{ruby_libarchdir}/enc/trans/gbk.so
-%{ruby_libarchdir}/enc/trans/iso2022.so
-%{ruby_libarchdir}/enc/trans/japanese.so
-%{ruby_libarchdir}/enc/trans/japanese_euc.so
-%{ruby_libarchdir}/enc/trans/japanese_sjis.so
-%{ruby_libarchdir}/enc/trans/korean.so
-%{ruby_libarchdir}/enc/trans/single_byte.so
-%{ruby_libarchdir}/enc/trans/transdb.so
-%{ruby_libarchdir}/enc/trans/utf8_mac.so
-%{ruby_libarchdir}/enc/trans/utf_16_32.so
-%{ruby_libarchdir}/enc/utf_16be.so
-%{ruby_libarchdir}/enc/utf_16le.so
-%{ruby_libarchdir}/enc/utf_32be.so
-%{ruby_libarchdir}/enc/utf_32le.so
-%{ruby_libarchdir}/enc/windows_1250.so
-%{ruby_libarchdir}/enc/windows_1251.so
-%{ruby_libarchdir}/enc/windows_1252.so
-%{ruby_libarchdir}/enc/windows_1253.so
-%{ruby_libarchdir}/enc/windows_1254.so
-%{ruby_libarchdir}/enc/windows_1257.so
-%{ruby_libarchdir}/enc/windows_31j.so
-%{ruby_libarchdir}/etc.so
-%{ruby_libarchdir}/fcntl.so
-%{ruby_libarchdir}/fiber.so
-%{ruby_libarchdir}/fiddle.so
-%{ruby_libarchdir}/gdbm.so
-%dir %{ruby_libarchdir}/io
-%{ruby_libarchdir}/io/nonblock.so
-%{ruby_libarchdir}/io/wait.so
-%{ruby_libarchdir}/nkf.so
-%{ruby_libarchdir}/objspace.so
-%{ruby_libarchdir}/pathname.so
-%{ruby_libarchdir}/pty.so
-%dir %{ruby_libarchdir}/racc
-%{ruby_libarchdir}/racc/cparse.so
-%dir %{ruby_libarchdir}/rbconfig
-%{ruby_libarchdir}/rbconfig.rb
-%{ruby_libarchdir}/rbconfig/sizeof.so
-%{ruby_libarchdir}/readline.so
-%{ruby_libarchdir}/ripper.so
-%{ruby_libarchdir}/sdbm.so
-%{ruby_libarchdir}/socket.so
-%{ruby_libarchdir}/stringio.so
-%{ruby_libarchdir}/strscan.so
-%{ruby_libarchdir}/syslog.so
-%{ruby_libarchdir}/zlib.so
+%dir %{ruby_archdir}
+%dir %{ruby_archdir}/cgi
+%{ruby_archdir}/cgi/escape.so
+%{ruby_archdir}/continuation.so
+%{ruby_archdir}/coverage.so
+%{ruby_archdir}/date_core.so
+%{ruby_archdir}/dbm.so
+%dir %{ruby_archdir}/digest
+%{ruby_archdir}/digest.so
+%{ruby_archdir}/digest/bubblebabble.so
+%{ruby_archdir}/digest/md5.so
+%{ruby_archdir}/digest/rmd160.so
+%{ruby_archdir}/digest/sha1.so
+%{ruby_archdir}/digest/sha2.so
+%dir %{ruby_archdir}/enc
+%{ruby_archdir}/enc/big5.so
+%{ruby_archdir}/enc/cp949.so
+%{ruby_archdir}/enc/emacs_mule.so
+%{ruby_archdir}/enc/encdb.so
+%{ruby_archdir}/enc/euc_jp.so
+%{ruby_archdir}/enc/euc_kr.so
+%{ruby_archdir}/enc/euc_tw.so
+%{ruby_archdir}/enc/gb18030.so
+%{ruby_archdir}/enc/gb2312.so
+%{ruby_archdir}/enc/gbk.so
+%{ruby_archdir}/enc/iso_8859_1.so
+%{ruby_archdir}/enc/iso_8859_10.so
+%{ruby_archdir}/enc/iso_8859_11.so
+%{ruby_archdir}/enc/iso_8859_13.so
+%{ruby_archdir}/enc/iso_8859_14.so
+%{ruby_archdir}/enc/iso_8859_15.so
+%{ruby_archdir}/enc/iso_8859_16.so
+%{ruby_archdir}/enc/iso_8859_2.so
+%{ruby_archdir}/enc/iso_8859_3.so
+%{ruby_archdir}/enc/iso_8859_4.so
+%{ruby_archdir}/enc/iso_8859_5.so
+%{ruby_archdir}/enc/iso_8859_6.so
+%{ruby_archdir}/enc/iso_8859_7.so
+%{ruby_archdir}/enc/iso_8859_8.so
+%{ruby_archdir}/enc/iso_8859_9.so
+%{ruby_archdir}/enc/koi8_r.so
+%{ruby_archdir}/enc/koi8_u.so
+%{ruby_archdir}/enc/shift_jis.so
+%dir %{ruby_archdir}/enc/trans
+%{ruby_archdir}/enc/trans/big5.so
+%{ruby_archdir}/enc/trans/chinese.so
+%{ruby_archdir}/enc/trans/ebcdic.so
+%{ruby_archdir}/enc/trans/emoji.so
+%{ruby_archdir}/enc/trans/emoji_iso2022_kddi.so
+%{ruby_archdir}/enc/trans/emoji_sjis_docomo.so
+%{ruby_archdir}/enc/trans/emoji_sjis_kddi.so
+%{ruby_archdir}/enc/trans/emoji_sjis_softbank.so
+%{ruby_archdir}/enc/trans/escape.so
+%{ruby_archdir}/enc/trans/gb18030.so
+%{ruby_archdir}/enc/trans/gbk.so
+%{ruby_archdir}/enc/trans/iso2022.so
+%{ruby_archdir}/enc/trans/japanese.so
+%{ruby_archdir}/enc/trans/japanese_euc.so
+%{ruby_archdir}/enc/trans/japanese_sjis.so
+%{ruby_archdir}/enc/trans/korean.so
+%{ruby_archdir}/enc/trans/single_byte.so
+%{ruby_archdir}/enc/trans/transdb.so
+%{ruby_archdir}/enc/trans/utf8_mac.so
+%{ruby_archdir}/enc/trans/utf_16_32.so
+%{ruby_archdir}/enc/utf_16be.so
+%{ruby_archdir}/enc/utf_16le.so
+%{ruby_archdir}/enc/utf_32be.so
+%{ruby_archdir}/enc/utf_32le.so
+%{ruby_archdir}/enc/windows_1250.so
+%{ruby_archdir}/enc/windows_1251.so
+%{ruby_archdir}/enc/windows_1252.so
+%{ruby_archdir}/enc/windows_1253.so
+%{ruby_archdir}/enc/windows_1254.so
+%{ruby_archdir}/enc/windows_1257.so
+%{ruby_archdir}/enc/windows_31j.so
+%{ruby_archdir}/etc.so
+%{ruby_archdir}/fcntl.so
+%{ruby_archdir}/fiber.so
+%{ruby_archdir}/fiddle.so
+%{ruby_archdir}/gdbm.so
+%dir %{ruby_archdir}/io
+%{ruby_archdir}/io/nonblock.so
+%{ruby_archdir}/io/wait.so
+%{ruby_archdir}/nkf.so
+%{ruby_archdir}/objspace.so
+%{ruby_archdir}/pathname.so
+%{ruby_archdir}/pty.so
+%dir %{ruby_archdir}/racc
+%{ruby_archdir}/racc/cparse.so
+%dir %{ruby_archdir}/rbconfig
+%{ruby_archdir}/rbconfig.rb
+%{ruby_archdir}/rbconfig/sizeof.so
+%{ruby_archdir}/readline.so
+%{ruby_archdir}/ripper.so
+%{ruby_archdir}/sdbm.so
+%{ruby_archdir}/socket.so
+%{ruby_archdir}/stringio.so
+%{ruby_archdir}/strscan.so
+%{ruby_archdir}/syslog.so
+%{ruby_archdir}/zlib.so
 
 %{tapset_dir}/*.stp
 
@@ -1012,7 +1012,7 @@ make check TESTS="-v $DISABLE_TESTS"
 
 %files -n rubygem-bigdecimal
 %{ruby_libdir}/bigdecimal
-%{ruby_libarchdir}/bigdecimal.so
+%{ruby_archdir}/bigdecimal.so
 %{_libdir}/gems/%{name}/bigdecimal-%{bigdecimal_version}
 %{gem_dir}/gems/bigdecimal-%{bigdecimal_version}
 %{gem_dir}/specifications/bigdecimal-%{bigdecimal_version}.gemspec
@@ -1024,14 +1024,14 @@ make check TESTS="-v $DISABLE_TESTS"
 
 %files -n rubygem-io-console
 %{ruby_libdir}/io
-%{ruby_libarchdir}/io/console.so
+%{ruby_archdir}/io/console.so
 %{_libdir}/gems/%{name}/io-console-%{io_console_version}
 %{gem_dir}/gems/io-console-%{io_console_version}
 %{gem_dir}/specifications/io-console-%{io_console_version}.gemspec
 
 %files -n rubygem-json
 %{ruby_libdir}/json*
-%{ruby_libarchdir}/json*
+%{ruby_archdir}/json*
 %{_libdir}/gems/%{name}/json-%{json_version}
 %{gem_dir}/gems/json-%{json_version}
 %{gem_dir}/specifications/json-%{json_version}.gemspec
@@ -1044,7 +1044,7 @@ make check TESTS="-v $DISABLE_TESTS"
 %files -n rubygem-openssl
 %{ruby_libdir}/openssl
 %{ruby_libdir}/openssl.rb
-%{ruby_libarchdir}/openssl.so
+%{ruby_archdir}/openssl.so
 %{_libdir}/gems/%{name}/openssl-%{openssl_version}
 %{gem_dir}/gems/openssl-%{openssl_version}
 %{gem_dir}/specifications/openssl-%{openssl_version}.gemspec
@@ -1057,7 +1057,7 @@ make check TESTS="-v $DISABLE_TESTS"
 %files -n rubygem-psych
 %{ruby_libdir}/psych
 %{ruby_libdir}/psych.rb
-%{ruby_libarchdir}/psych.so
+%{ruby_archdir}/psych.so
 %{_libdir}/gems/%{name}/psych-%{psych_version}
 %{gem_dir}/gems/psych-%{psych_version}
 %{gem_dir}/specifications/psych-%{psych_version}.gemspec
