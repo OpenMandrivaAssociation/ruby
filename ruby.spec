@@ -2,7 +2,7 @@
 %global minor_version 5
 %global teeny_version 1
 %global major_minor_version %{major_version}.%{minor_version}
-%define gem_dir %{_datadir}/
+%define gem_dir %{_datadir}/gems
 
 %global ruby_version %{major_minor_version}.%{teeny_version}
 %global ruby_release %{ruby_version}
