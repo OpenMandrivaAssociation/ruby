@@ -723,6 +723,11 @@ sed -i 's/^/%doc /' .ruby-doc.*
 sed -i 's/^/%lang(ja) /' .ruby-doc.ja
 
 rm -rf %{buildroot}/%{_datadir}/gems/cache/*
+find %{buildroot}/%{gem_dir}/gems/ -name "*.travis.yml" -delete
+rm -f %{buildroot}/%{gem_dir}/gems/did_you_mean-1.2.0/.ruby-version
+rm -f %{buildroot}/%{gem_dir}/gems/minitest-5.10.3/.autotest
+rm -f %{buildroot}/%{gem_dir}/gems/xmlrpc-0.3.0/LICENSE.txt
+
 
 %check
 %if %{with tests}
