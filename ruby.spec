@@ -78,6 +78,7 @@ Summary: An interpreter of object-oriented scripting language
 Name: ruby
 Version: %{ruby_version}
 Release: %{release_string}
+Group: Development/Ruby
 # Public Domain for example for: include/ruby/st.h, strftime.c, missing/*, ...
 # MIT and CCO: ccan/*
 # zlib: ext/digest/md5/md5.*, ext/nkf/nkf-utf8/nkf.c
@@ -187,7 +188,7 @@ straight-forward, and extensible.
 
 %package -n %{devname}
 Summary:    A Ruby development environment
-Group:      Development/Languages
+Group:      Development/Ruby
 Requires:   %{name}%{?_isa} = %{version}-%{release}
 # This would not be needed if ~50 packages depending on -devel used
 # --disable-gems
