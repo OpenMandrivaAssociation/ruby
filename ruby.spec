@@ -159,6 +159,7 @@ Suggests: rubygem(did_you_mean) >= %{did_you_mean_version}
 Suggests: rubygem(openssl) >= %{openssl_version}
 
 BuildRequires: autoconf
+BuildRequires: ruby
 BuildRequires: gdbm-devel
 %{?with_gmp:BuildRequires: gmp-devel}
 BuildRequires: pkgconfig(libffi)
