@@ -69,10 +69,8 @@
 %bcond_without hardening_test
 %endif
 
-%define mklibname lib64%{1}
-
 %define libname %mklibname ruby %(echo %{ruby_version} |cut -d. -f1-2)
-%define devname %mklibname -d ruby
+%define devname %mklibname ruby -d
 
 %bcond_with tests
 
@@ -155,10 +153,10 @@ Patch15: ruby-2.6.0-library-options-to-MAINLIBS.patch
 #Patch17: ruby-2.5.1-linkage.patch
 
 Requires: %{libname} = %{EVRD}
-Recommends: ruby(rubygems) >= %{rubygems_version}
-Recommends: rubygem(bigdecimal) >= %{bigdecimal_version}
-Recommends: rubygem(did_you_mean) >= %{did_you_mean_version}
-Recommends: rubygem(openssl) >= %{openssl_version}
+Suggests: ruby(rubygems) >= %{rubygems_version}
+Suggests: rubygem(bigdecimal) >= %{bigdecimal_version}
+Suggests: rubygem(did_you_mean) >= %{did_you_mean_version}
+Suggests: rubygem(openssl) >= %{openssl_version}
 
 BuildRequires: autoconf
 BuildRequires: gdbm-devel
@@ -235,8 +233,8 @@ Version:    %{rubygems_version}
 Group:      Development/Libraries
 License:    Ruby or MIT
 Requires:   ruby(release)
-Recommends: rubygem(rdoc) >= %{rdoc_version}
-Recommends: rubygem(io-console) >= %{io_console_version}
+Suggests: rubygem(rdoc) >= %{rdoc_version}
+Suggests: rubygem(io-console) >= %{io_console_version}
 Requires:   rubygem(openssl) >= %{openssl_version}
 Requires:   rubygem(psych) >= %{psych_version}
 Provides:   gem = %{version}-%{release}
