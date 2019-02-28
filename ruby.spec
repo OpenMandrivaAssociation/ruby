@@ -682,6 +682,7 @@ sed -i '/^end$/ i\
 
 # Move man pages into proper location
 mv %{buildroot}%{gem_dir}/gems/rake-%{rake_version}/doc/rake.1 %{buildroot}%{_mandir}/man1
+rm -rf %{buildroot}%{gem_dir}/gems/rake-%{rake_version}/doc/example/
 
 # Install a tapset and fix up the path to the library.
 mkdir -p %{buildroot}%{tapset_dir}
