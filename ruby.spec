@@ -1,5 +1,5 @@
-%define subver 2.7
-%define abiver 2.7.0
+%define subver %(echo %{version}|cut -d. -f1-2)
+%define abiver %{subver}.0
 
 ### (Based on Fedora)
 # https://src.fedoraproject.org/rpms/ruby/blob/master/f/macros.ruby
@@ -33,8 +33,8 @@
 
 Summary:	Object Oriented Script Language
 Name:		ruby
-Version:	2.7.4
-Release:	3
+Version:	3.1.2
+Release:	1
 License:	Ruby or GPLv2+
 Group:		Development/Ruby
 Url:		http://www.ruby-lang.org/
@@ -50,15 +50,11 @@ Source7:	rubygems.req
 # Use shared libs as opposed to static for mkmf
 # See bug rhbz#428384
 Patch1:		ruby-2.1.2-mkmf-use-shared.patch
-Patch2:		ruby-2.7.4-openssl-3.0.patch
 # http://redmine.ruby-lang.org/issues/5108
 Patch3:		ruby-2.1.2-stdout-rouge-fix.patch
 # From Fedora
 Patch4:		ruby-2.1.0-Enable-configuration-of-archlibdir.patch
 Patch5:		ruby-2.1.0-custom-rubygems-location.patch
-Patch6:		ruby-2.7.0-Remove-RubyGems-dependency.patch
-# ROSA, https://github.com/ruby/ruby/pull/2862
-Patch7:		0001-Fix-linkage-of-popen_deadlock-test.patch
 BuildRequires:	byacc
 BuildRequires:	db18-devel
 BuildRequires:	gdbm-devel
@@ -88,10 +84,11 @@ Perl).  It is simple, straight-forward, and extensible.
 %{_bindir}/rdoc
 %{_bindir}/ri
 %{_bindir}/ruby
-%{_bindir}/y2racc
+%{_bindir}/rbs
+%{_bindir}/rdbg
+%{_bindir}/typeprof
 %{_datadir}/emacs/site-lisp/*
 %{_mandir}/man1/*
-%{_mandir}/man5/*
 %{_datadir}/ruby
 %{_libdir}/ruby
 %{_rpmmacrodir}/*ruby*
