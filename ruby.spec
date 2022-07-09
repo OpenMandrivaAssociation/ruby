@@ -59,10 +59,13 @@ BuildRequires:	byacc
 BuildRequires:	db18-devel
 BuildRequires:	gdbm-devel
 BuildRequires:	readline-devel
+# FIXME this is bad...
+BuildRequires:	ruby
 BuildRequires:	pkgconfig(ncurses)
 BuildRequires:	pkgconfig(libssl)
 BuildRequires:	pkgconfig(yaml-0.1)
 BuildRequires:	pkgconfig(zlib)
+BuildRequires:	pkgconfig(gmp)
 BuildRequires:	glibc-static-devel
 Provides:	rubygems = %{EVRD}
 Provides:	ruby(abi) = %{abiver}
