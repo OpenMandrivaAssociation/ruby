@@ -59,13 +59,12 @@ BuildRequires:	byacc
 BuildRequires:	db18-devel
 BuildRequires:	gdbm-devel
 BuildRequires:	readline-devel
-# FIXME this is bad...
-BuildRequires:	ruby
 BuildRequires:	pkgconfig(ncurses)
 BuildRequires:	pkgconfig(libssl)
 BuildRequires:	pkgconfig(yaml-0.1)
 BuildRequires:	pkgconfig(zlib)
 BuildRequires:	pkgconfig(gmp)
+BuildRequires:	pkgconfig(libffi)
 BuildRequires:	glibc-static-devel
 Provides:	rubygems = %{EVRD}
 Provides:	ruby(abi) = %{abiver}
@@ -202,7 +201,11 @@ autoreconf -fi
 %endif
 
 %install
-%make_install V=1
+TOP="$(pwd)"
+# FIXME why do we have to specify extout and LIBRUBYARG_SHARED here?
+# Seems to be a weird missing BuildRequires (since make install works
+# as expected if built on a really complete development setup)
+%make_install Q= V=1 extout=${TOP}/.ext LIBRUBYARG_SHARED="-L${TOP} -lruby"
 
 install -d %{buildroot}%{_docdir}/%{name}-%{version}
 cp -a COPYING* ChangeLog README* sample %{buildroot}%{_docdir}/%{name}-%{version}
