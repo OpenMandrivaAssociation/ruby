@@ -33,7 +33,7 @@
 
 Summary:	Object Oriented Script Language
 Name:		ruby
-Version:	3.3.0
+Version:	3.3.2
 Release:	1
 License:	Ruby or GPLv2+
 Group:		Development/Ruby
@@ -88,6 +88,7 @@ Perl).  It is simple, straight-forward, and extensible.
 %{_bindir}/ruby
 %{_bindir}/rbs
 %{_bindir}/rdbg
+%{_bindir}/syntax_suggest
 %{_bindir}/typeprof
 %{_datadir}/emacs/site-lisp/*
 %{_mandir}/man1/*
@@ -170,6 +171,11 @@ rm -rf ext/fiddle/libffi*
 
 %build
 autoreconf -fi
+# FIXME
+# As of Ruby 3.3.2, clang 18.1.5, building ruby with clang
+# causes crashes while running the test suite.
+export CC=%{_target_platform}-gcc
+export CXX=%{_target_platform}-g++
 %configure \
 	--enable-shared \
 	--enable-rubygems \
