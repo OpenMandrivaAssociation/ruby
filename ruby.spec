@@ -33,7 +33,7 @@
 
 Summary:	Object Oriented Script Language
 Name:		ruby
-Version:	3.3.2
+Version:	3.3.5
 Release:	1
 License:	Ruby or GPLv2+
 Group:		Development/Ruby
@@ -77,11 +77,12 @@ Perl).  It is simple, straight-forward, and extensible.
 
 %files
 %config(noreplace) %{_sysconfdir}/emacs/site-start.d/*
-%{_bindir}/bundle*
+%{_bindir}/bundle
+%{_bindir}/bundler
 %{_bindir}/erb
 %{_bindir}/gem
 %{_bindir}/irb
-%{_bindir}/racc*
+%{_bindir}/racc
 %{_bindir}/rake
 %{_bindir}/rdoc
 %{_bindir}/ri
@@ -90,6 +91,18 @@ Perl).  It is simple, straight-forward, and extensible.
 %{_bindir}/rdbg
 %{_bindir}/syntax_suggest
 %{_bindir}/typeprof
+%{_bindir}/bundle.lock
+%{_bindir}/bundler.lock
+%{_bindir}/erb.lock
+%{_bindir}/irb.lock
+%{_bindir}/racc.lock
+%{_bindir}/rake.lock
+%{_bindir}/rbs.lock
+%{_bindir}/rdbg.lock
+%{_bindir}/rdoc.lock
+%{_bindir}/ri.lock
+%{_bindir}/syntax_suggest.lock
+%{_bindir}/typeprof.lock
 %{_datadir}/emacs/site-lisp/*
 %{_mandir}/man1/*
 %{_datadir}/ruby
