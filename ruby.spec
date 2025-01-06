@@ -1,3 +1,7 @@
+%ifarch znver1
+# Workaround for clang 19.1.6 bug breaking -O3
+%global optflags %{optflags} -O2
+%endif
 %define subver %(echo %{version}|cut -d. -f1-2)
 %define abiver %{subver}.0
 
