@@ -37,7 +37,7 @@
 
 Summary:	Object Oriented Script Language
 Name:		ruby
-Version:	3.4.3
+Version:	3.4.4
 Release:	1
 License:	Ruby or GPLv2+
 Group:		Development/Ruby
