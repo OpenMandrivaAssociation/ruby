@@ -59,6 +59,11 @@ Patch3:		ruby-2.1.2-stdout-rouge-fix.patch
 # From Fedora
 Patch4:		ruby-2.1.0-Enable-configuration-of-archlibdir.patch
 Patch5:		ruby-2.1.0-custom-rubygems-location.patch
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	byacc
 BuildRequires:	db18-devel
 BuildRequires:	gdbm-devel
