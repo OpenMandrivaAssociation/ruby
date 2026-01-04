@@ -37,7 +37,7 @@
 
 Summary:	Object Oriented Script Language
 Name:		ruby
-Version:	3.4.8
+Version:	4.0.0
 Release:	1
 License:	Ruby or GPLv2+
 Group:		Development/Ruby
@@ -109,6 +109,12 @@ Perl).  It is simple, straight-forward, and extensible.
 %{_rpmconfigdir}/rubygems.req
 %{_rpmconfigdir}/rubygems.prov
 %{_rpmconfigdir}/rubygems.con
+# test-unit is useful for developers only, so it probably shouldn't be
+# in the main runtime package
+%exclude %{_libdir}/ruby/gems/*/cache/test-unit-*.gem
+%exclude %{_libdir}/ruby/gems/*/gems/test-unit-*
+%exclude %{_libdir}/ruby/gems/*/specifications/test-unit-*.gemspec
+%exclude %{_libdir}/ruby/*/bundler/templates/newgem/test/test-unit/test_helper.rb.tt
 
 #----------------------------------------------------------------------------
 
@@ -123,6 +129,24 @@ This package contains the shared ruby %{subver} library.
 
 %files -n %{libname}
 %{_libdir}/libruby.so.%{subver}*
+
+#----------------------------------------------------------------------------
+
+%package test-unit
+Summary:	Unit test tools for the Ruby language
+Group:		Development/Ruby
+BuildArch:	noarch
+
+%description test-unit
+Unit test tools for the Ruby language
+
+%files test-unit
+%{_bindir}/minitest
+%{_bindir}/test-unit
+%{_libdir}/ruby/gems/*/cache/test-unit-*.gem
+%{_libdir}/ruby/gems/*/gems/test-unit-*
+%{_libdir}/ruby/gems/*/specifications/test-unit-*.gemspec
+%{_libdir}/ruby/*/bundler/templates/newgem/test/test-unit/test_helper.rb.tt
 
 #----------------------------------------------------------------------------
 
