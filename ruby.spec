@@ -37,7 +37,7 @@
 
 Summary:	Object Oriented Script Language
 Name:		ruby
-Version:	4.0.1
+Version:	4.0.2
 Release:	1
 License:	Ruby or GPLv2+
 Group:		Development/Ruby
