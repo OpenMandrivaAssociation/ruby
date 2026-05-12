@@ -37,7 +37,7 @@
 
 Summary:	Object Oriented Script Language
 Name:		ruby
-Version:	4.0.2
+Version:	4.0.4
 Release:	1
 License:	Ruby or GPLv2+
 Group:		Development/Ruby
@@ -166,7 +166,6 @@ This package contains the Ruby's documentation
 %files doc
 %{_datadir}/ri
 %{_defaultdocdir}/%{name}-%{version}/COPYING*
-%{_defaultdocdir}/%{name}-%{version}/ChangeLog
 %{_defaultdocdir}/%{name}-%{version}/README.*
 %{_defaultdocdir}/%{name}-%{version}/sample
 
@@ -248,7 +247,7 @@ TOP="$(pwd)"
 %make_install Q= V=1 extout=${TOP}/.ext LIBRUBYARG_SHARED="-L${TOP} -lruby"
 
 install -d %{buildroot}%{_docdir}/%{name}-%{version}
-cp -a COPYING* ChangeLog README* sample %{buildroot}%{_docdir}/%{name}-%{version}
+cp -a COPYING* README* sample %{buildroot}%{_docdir}/%{name}-%{version}
 
 install -m644 %{SOURCE4} -D %{buildroot}%{_datadir}/emacs/site-lisp/ruby-mode.el
 
